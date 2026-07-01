@@ -1,5 +1,5 @@
 #include "pushswap.h"
-void    pa(t_node **stack_b, t_node **stack_a)
+void    pb(t_node **stack_b, t_node **stack_a)
 {
     if (!stack_a || !*stack_a)
         return ;
