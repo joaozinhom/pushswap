@@ -28,23 +28,24 @@ t_node  *pop_top(t_node **stack)
     return (node);
 }
 
-int is_sorted(t_node *stack)
-{
-    t_node  *node;
-
-    node = stack;
-    while (node != NULL && node->next != NULL)
-    {
-        if (node->value > node->next->value)
-            return (0);
-        node = node->next;
-    }
-    return (1);
-}
 
 int peek(t_node *stack)
 {
     if (!stack)
         return (0);
     return (stack->value);
+}
+
+void    swap_first_two(t_node **stack)
+{
+    t_node  *first;
+    t_node  *second;
+
+    if (!stack || !*stack || !(*stack)->next)
+        return ;
+    first = *stack;
+    second = first->next;
+    first->next = second->next;
+    second->next = first;
+    *stack = second;
 }
