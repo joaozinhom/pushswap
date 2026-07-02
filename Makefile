@@ -6,7 +6,7 @@ INCLUDES	= -I.
 
 SRCS		= main.c \
 			  src/puswap.c \
-			  src/disorder_metric.c \
+			  src/benchmarks/disorder_metric.c \
 			  src/algoritms/adaptative.c \
 			  src/algoritms/complex.c \
 			  src/algoritms/medium.c \
