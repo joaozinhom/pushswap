@@ -10,6 +10,7 @@ typedef struct s_node
     struct s_node   *next;
 }   t_node;
 
+double  disorder_metric(t_node *stack);
 // list.c
 t_node  *new_node(int value);
 void    push_top(t_node **stack, t_node *node);
