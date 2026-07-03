@@ -105,3 +105,14 @@ void shiftdown(t_node **stack)
         actual = actual->next;
     }
 }
+
+int	is_sorted(t_node *stack)
+{
+	while (stack && stack->next)
+	{
+		if (stack->value > stack->next->value)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
+}

@@ -11,7 +11,18 @@ typedef struct s_node
 }   t_node;
 
 size_t bubble_sorting(t_node **stack);
+int	chunk_sorting(t_node **stack_a, t_node **stack_b);
 double  disorder_metric(t_node *stack);
+int	int_sqrt_ceil(int n);
+
+// medium.c
+int		int_sqrt_ceil(int n);
+int		find_insert_pos(t_node *stack_b, int value);
+void	rotate_b_to(t_node **stack_b, int pos, int size_b);
+void	insert_sorted_b(t_node **stack_a, t_node **stack_b);
+void	push_chunk(t_node **stack_a, t_node **stack_b, int start, int end);
+int		chunk_sorting(t_node **stack_a, t_node **stack_b);
+
 // list.c
 t_node  *new_node(int value);
 void    push_top(t_node **stack, t_node *node);
