@@ -1,15 +1,21 @@
 NAME		:= push_swap
 
-CC		:= cc
+CC			:= cc
 CFLAGS		:= -Wall -Wextra -Werror
-RM		:= rm -f
+RM			:= rm -f
 
 SRC_DIR		:= src
 OBJ_DIR		:= obj
 INC_DIR		:= .
 
-SRCS        =	\
-		main.c\
+LIBFT_DIR	:= Libft
+LIBFT		:= $(LIBFT_DIR)/libft.a
+
+PRINTF_DIR	:= ft_printf
+PRINTF_LIB	:= $(PRINTF_DIR)/libftprintf.a
+
+SRCS        :=	\
+		#main.c\
 		puswap.c \
 		disorder_metric.c \
 		algoritms/simple.c \
@@ -28,29 +34,37 @@ SRCS        =	\
 		operators/sb.c \
 		operators/ss.c \
 		utils/list.c \
-		utils/stack.c
+		utils/stack.c#
 
-OBJS        = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
+OBJS        := $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
-INCLUDES	:= -I $(INC_DIR)
+INCLUDES	:= -I $(INC_DIR) -I $(LIBFT_DIR) -I $(PRINTF_DIR)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+$(NAME): $(OBJS) $(LIBFT_DIR) $(PRINTF_DIR)
+	$(CC) $(CFLAGS) $(OBJS) $(PRINTF_LIB) $(LIBFT) -o $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	mkdir -p (dir $@)
+	mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
+$(LIBFT_DIR):
+	$(MAKE) -C $(LIBFT_DIR)
 
+$(PRINTF_DIR):
+	$(MAKE) -C $(PRINTF_DIR)
 clean:
 	$(RM) -r $(OBJ_DIR)
-
+	$(MAKE) -C $(LIBFT_DIR) clean
+	$(MAKE) -C $(PRINTF_DIR_DIR) clean
+ 
 fclean: clean
 	$(RM) $(NAME)
+	$(MAKE) -C $(LIBFT_DIR) fclean
+	$(MAKE) -C $(PRINTF_DIR) fclean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re $(LIBFT_DIR) $(PRINTF_DIR)
 .SILENT:
