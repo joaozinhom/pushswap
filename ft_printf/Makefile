@@ -1,15 +1,15 @@
-NAME        = libftprintf.a
+NAME        := libftprintf.a
 
-CC          = cc
-CFLAGS      = -Wall -Wextra -Werror
-RM          = rm -f
-AR          = ar rcs
+CC          := cc
+CFLAGS      := -Wall -Wextra -Werror
+RM          := rm -f
+AR          := ar rcs
 
-SRC_DIR     = src
-OBJ_DIR     = obj
-INC_DIR     = includes
+SRC_DIR     := src
+OBJ_DIR     := obj
+INC_DIR     := includes
 
-SRCS        = 	\
+SRCS        := 	\
               ft_printf.c \
               ft_putchar.c \
               ft_putnbr.c \
@@ -20,9 +20,9 @@ SRCS        = 	\
               ft_flag_p.c 
 
 
-OBJS        = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
+OBJS        := $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
-INCLUDES    = -I$(INC_DIR)
+INCLUDES    := -I$(INC_DIR)
 
 all: $(NAME)
 
@@ -46,3 +46,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+.SILENT:

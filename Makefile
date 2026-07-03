@@ -2,7 +2,7 @@ NAME		:= push_swap
 
 CC			:= cc
 CFLAGS		:= -Wall -Wextra -Werror
-RM			:= rm -f
+RM			:= rm -rf
 
 SRC_DIR		:= src
 OBJ_DIR		:= obj
@@ -15,8 +15,8 @@ PRINTF_DIR	:= ft_printf
 PRINTF_LIB	:= $(PRINTF_DIR)/libftprintf.a
 
 SRCS        :=	\
-		#main.c\
-		puswap.c \
+		main.c\
+		#puswap.c \
 		disorder_metric.c \
 		algoritms/simple.c \
 		algoritms/medium.c \
@@ -55,9 +55,9 @@ $(LIBFT_DIR):
 $(PRINTF_DIR):
 	$(MAKE) -C $(PRINTF_DIR)
 clean:
-	$(RM) -r $(OBJ_DIR)
+	$(RM) $(OBJ_DIR)
 	$(MAKE) -C $(LIBFT_DIR) clean
-	$(MAKE) -C $(PRINTF_DIR_DIR) clean
+	$(MAKE) -C $(PRINTF_DIR) clean
  
 fclean: clean
 	$(RM) $(NAME)
