@@ -1,0 +1,28 @@
+Push_swap
+
+☐ Parser 
+
+✔ Operators @done
+
+☐ Disorder 
+
+☐ Sort 
+	☐  --simple
+	☐  --medium 
+	☐  --complex
+	☐  --adaptative 
+ 
+☐ Benchmark
+	☐ (--bench, stderr)
+	☐ (Desorder %)
+	☐ Estrategia usada 
+	☐ Total de operações
+	☐ Contagem por tipo de operação
+
+☐ Error handling 
+	write (2, "Error\n", 6)
+
+☐ Performance minina 
+	☐ 100 Numeros -> Minimo < 2000 -> Bom < 1500 -> Excelente < 700
+	☐ 100 Numeros -> Minimo < 12000 -> Bom < 8000 -> Excelente < 5500
+

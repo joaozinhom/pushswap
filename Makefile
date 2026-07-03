@@ -1,48 +1,70 @@
-NAME		= push_swap
+NAME		:= push_swap
 
-CC			= cc
-CFLAGS		= -Wall -Wextra -Werror
-INCLUDES	= -I.
+CC			:= cc
+CFLAGS		:= -Wall -Wextra -Werror
+RM			:= rm -rf
 
-SRCS		= main.c \
-			  src/puswap.c \
-			  src/benchmarks/disorder_metric.c \
-			  src/algoritms/adaptative.c \
-			  src/algoritms/complex.c \
-			  src/algoritms/medium.c \
-			  src/algoritms/simple.c \
-			  src/operators/sa.c \
-			  src/operators/sb.c \
-			  src/operators/ss.c \
-			  src/operators/pa.c \
-			  src/operators/pb.c \
-			  src/operators/ra.c \
-			  src/operators/rb.c \
-			  src/operators/rr.c \
-			  src/operators/rra.c \
-			  src/operators/rrb.c \
-			  src/operators/rrr.c \
-			  src/utils/list.c \
-			  src/utils/stack.c
+SRC_DIR		:= src
+OBJ_DIR		:= obj
+INC_DIR		:= .
 
-OBJS		= $(SRCS:.c=.o)
+LIBFT_DIR	:= Libft
+LIBFT		:= $(LIBFT_DIR)/libft.a
 
-HEADER		= pushswap.h
+PRINTF_DIR	:= ft_printf
+PRINTF_LIB	:= $(PRINTF_DIR)/libftprintf.a
+
+SRCS        :=	\
+		main.c\
+		#puswap.c \
+		disorder_metric.c \
+		algoritms/simple.c \
+		algoritms/medium.c \
+		algoritms/complex.c \
+		algoritms/adaptative.c \
+		operators/pa.c \
+		operators/pb.c \
+		operators/ra.c \
+		operators/rb.c \
+		operators/rra.c \
+		operators/rrb.c \
+		operators/rr.c \
+		operators/rrr.c \
+		operators/sa.c \
+		operators/sb.c \
+		operators/ss.c \
+		utils/list.c \
+		utils/stack.c#
+
+OBJS        := $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
+
+INCLUDES	:= -I $(INC_DIR) -I $(LIBFT_DIR) -I $(PRINTF_DIR)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+$(NAME): $(OBJS) $(LIBFT) $(PRINTF_LIB)
+	$(CC) $(CFLAGS) $(OBJS) $(PRINTF_LIB) $(LIBFT) -o $(NAME)
 
-%.o: %.c $(HEADER)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-clean:
-	rm -f $(OBJS)
+$(LIBFT):
+	$(MAKE) -C $(LIBFT_DIR)
 
+$(PRINTF_LIB):
+	$(MAKE) -C $(PRINTF_DIR)
+clean:
+	$(RM) $(OBJ_DIR)
+	$(MAKE) -C $(LIBFT_DIR) clean
+	$(MAKE) -C $(PRINTF_DIR) clean
+ 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
+	$(MAKE) -C $(LIBFT_DIR) fclean
+	$(MAKE) -C $(PRINTF_DIR) fclean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re $(LIBFT_DIR) $(PRINTF_DIR)
+.SILENT:
