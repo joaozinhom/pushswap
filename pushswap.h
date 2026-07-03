@@ -10,6 +10,7 @@ typedef struct s_node
     struct s_node   *next;
 }   t_node;
 
+size_t bubble_sorting(t_node **stack);
 double  disorder_metric(t_node *stack);
 // list.c
 t_node  *new_node(int value);
@@ -22,6 +23,7 @@ void    free_stack(t_node **stack);
 int     stack_size(t_node *stack);
 t_node  *pop_top(t_node **stack);
 int     is_sorted(t_node *stack);
+int     stack_max(t_node *stack);
 int     peek(t_node *stack);
 void    swap_first_two(t_node **stack);
 void    shiftdown(t_node **stack);

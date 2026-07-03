@@ -1,44 +1,36 @@
-NAME        := libftprintf.a
+NAME    = libftprintf.a
+CC      = cc
+CFLAGS  = -Wall -Wextra -Werror
+AR      = ar rcs
+RM      = rm -f
 
-CC          := cc
-CFLAGS      := -Wall -Wextra -Werror
-RM          := rm -f
-AR          := ar rcs
+SRCS    =   src/ft_printf.c \
+            src/manager.c \
+            src/flags/flag_i.c \
+            src/flags/flag_x.c \
+            src/flags/flag_upper_x.c \
+            src/flags/flag_percent.c \
+            src/flags/flag_d.c \
+            src/flags/flag_c.c \
+            src/flags/flag_s.c \
+            src/flags/flag_u.c \
+            src/flags/flag_p.c \
+            src/utils/putdecimal.c \
+            src/utils/puthexadecimal.c \
+            src/utils/ft_strlen.c
 
-SRC_DIR     := src
-OBJ_DIR     := obj
-INC_DIR     := includes
-
-SRCS        := 	\
-              ft_printf.c \
-              ft_putchar.c \
-              ft_putnbr.c \
-              ft_putnbr_unsigned.c \
-              ft_putstr.c \
-              ft_puthex_lower.c \
-              ft_puthex_upper.c \
-              ft_flag_p.c 
-
-
-OBJS        := $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
-
-INCLUDES    := -I$(INC_DIR)
+OBJS    = $(SRCS:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
-
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-
-$(OBJ_DIR):
-	mkdir -p $(OBJ_DIR)
-
+%.o: %.c
+	$(CC) $(CFLAGS) -I. -c $< -o $@
 
 clean:
-	$(RM) -r $(OBJ_DIR)
+	$(RM) $(OBJS)
 
 fclean: clean
 	$(RM) $(NAME)
@@ -46,4 +38,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
-.SILENT:
