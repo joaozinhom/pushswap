@@ -1,0 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_error.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpinto-l <mpinto-l@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/03 15:28:04 by mpinto-l          #+#    #+#             */
+/*   Updated: 2026/07/03 16:06:22 by mpinto-l         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "pushswap.h"
+
+void	print_error_exit(void)
+{
+	write(2, "Error\n", 6);
+	exit (1);
+}
+
+void print_actual_error(void) // detele it
+{
+	ft_printf("Error na %s", __func__);
+	exit(1);
+}
