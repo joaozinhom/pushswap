@@ -34,7 +34,10 @@ SRCS        :=	\
 		operators/sb.c \
 		operators/ss.c \
 		utils/list.c \
-		utils/stack.c#
+		utils/stack.c\
+		parser/print_error.c\
+		parser/number_check.c\
+		parser/check_flag.c
 
 OBJS        := $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 

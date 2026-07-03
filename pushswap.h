@@ -54,4 +54,27 @@ void    rr(t_node **stack_a, t_node **stack_b);
 void    rra(t_node **stack_a);
 void    rrb(t_node **stack_b);
 void    rrr(t_node **stack_a, t_node **stack_b);
+
+// parser 
+
+    // error\n 
+
+void	print_error_exit(void);
+void    print_actual_error(void); // change it to print_error after debug 
+   
+    // number check
+int is_valid_number(char *str);
+int check_int_limit(char *str);
+
+    // check flags 
+
+int check_flag(char *str)
+
+
+
+
+
+
+
+
 #endif
