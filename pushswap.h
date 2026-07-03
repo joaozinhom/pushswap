@@ -3,6 +3,8 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include "../Libft/libft.h"
+# include "../ft_printf/ft_printf.h"
 
 typedef struct s_node
 {
