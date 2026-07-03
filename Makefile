@@ -42,17 +42,17 @@ INCLUDES	:= -I $(INC_DIR) -I $(LIBFT_DIR) -I $(PRINTF_DIR)
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(LIBFT_DIR) $(PRINTF_DIR)
+$(NAME): $(OBJS) $(LIBFT) $(PRINTF_LIB)
 	$(CC) $(CFLAGS) $(OBJS) $(PRINTF_LIB) $(LIBFT) -o $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-$(LIBFT_DIR):
+$(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
 
-$(PRINTF_DIR):
+$(PRINTF_LIB):
 	$(MAKE) -C $(PRINTF_DIR)
 clean:
 	$(RM) $(OBJ_DIR)
