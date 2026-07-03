@@ -28,23 +28,64 @@ t_node  *pop_top(t_node **stack)
     return (node);
 }
 
-int is_sorted(t_node *stack)
-{
-    t_node  *node;
-
-    node = stack;
-    while (node != NULL && node->next != NULL)
-    {
-        if (node->value > node->next->value)
-            return (0);
-        node = node->next;
-    }
-    return (1);
-}
 
 int peek(t_node *stack)
 {
     if (!stack)
         return (0);
     return (stack->value);
+}
+
+void    swap_first_two(t_node **stack)
+{
+    t_node  *first;
+    t_node  *second;
+
+    if (!stack || !*stack || !(*stack)->next)
+        return ;
+    first = *stack;
+    second = first->next;
+    first->next = second->next;
+    second->next = first;
+    *stack = second;
+}
+
+void shiftup(t_node **stack)
+{
+    t_node  *actual;
+    int     carry;
+
+    if (!stack || !*stack || !(*stack)->next)
+        return ;
+    carry = (*stack)->value;
+    actual = *stack;
+    while (actual->next != NULL)
+    {
+        actual->value = actual->next->value;
+        actual = actual->next;
+    }
+    actual->value = carry;
+}
+
+
+void shiftdown(t_node **stack)
+{
+    t_node  *actual;
+    int     carry;
+    int     temp;
+
+    if (!stack || !*stack || !(*stack)->next)
+        return ;
+    actual = *stack;
+    while (actual->next != NULL)
+        actual = actual->next;
+    carry = actual->value;
+    actual = *stack;
+    while (actual != NULL)
+    {
+        temp = actual->value;
+        actual->value = carry;
+        carry = temp;
+        actual = actual->next;
+    }
 }
