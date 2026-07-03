@@ -6,7 +6,7 @@
 /*   By: mpinto-l <mpinto-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/03 15:35:56 by mpinto-l          #+#    #+#             */
-/*   Updated: 2026/07/03 16:04:40 by mpinto-l         ###   ########.fr       */
+/*   Updated: 2026/07/03 16:37:04 by mpinto-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,5 @@ int check_flag(char *str)
 		/* simple call */ 
 	}
 	else 
-		return ()
+		return(print_actual_error());
 }
