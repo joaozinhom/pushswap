@@ -29,6 +29,22 @@ t_node  *pop_top(t_node **stack)
 }
 
 
+int stack_max(t_node *stack)
+{
+    int max;
+
+    if (!stack)
+        return (0);
+    max = stack->value;
+    while (stack != NULL)
+    {
+        if (stack->value > max)
+            max = stack->value;
+        stack = stack->next;
+    }
+    return (max);
+}
+
 int peek(t_node *stack)
 {
     if (!stack)
