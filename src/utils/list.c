@@ -8,6 +8,7 @@ t_node  *new_node(int value)
     if (node == NULL)
         return (NULL);
     node->value = value;
+    node->index = -1;
     node->next = NULL;
     return (node);
 }
