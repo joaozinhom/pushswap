@@ -13,6 +13,7 @@ typedef struct s_node
     struct s_node   *next;
 }   t_node;
 
+
 size_t  bubble_sorting(t_node **stack);
 int     chunk_sorting(t_node **stack_a, t_node **stack_b);
 double  disorder_metric(t_node *stack);
@@ -61,8 +62,6 @@ void    rr(t_node **stack_a, t_node **stack_b);
 void    rra(t_node **stack_a);
 void    rrb(t_node **stack_b);
 void    rrr(t_node **stack_a, t_node **stack_b);
-
-
 
 // parser 
 

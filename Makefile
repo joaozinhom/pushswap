@@ -16,28 +16,30 @@ PRINTF_LIB	:= $(PRINTF_DIR)/libftprintf.a
 
 # not compiled yet: puswap.c, algoritms/complex.c (WIP), algoritms/adaptative.c (empty)
 SRCS        :=	\
-		main.c \
-		benchmarks/disorder_metric.c \
-		algoritms/simple.c \
-		algoritms/medium.c \
-		operators/pa.c \
-		operators/pb.c \
-		operators/ra.c \
-		operators/rb.c \
-		operators/rra.c \
-		operators/rrb.c \
-		operators/rr.c \
-		operators/rrr.c \
-		operators/sa.c \
-		operators/sb.c \
-		operators/ss.c \
-		utils/list.c \
-		utils/stack.c \
-		utils/index.c \
-		parser/check_flag.c\
-		parser/init.c\
-		parser/number_check.c\
-		parser/print_error.c\
+		main.c 							\
+		benchmarks/benchcmd.c			\
+		benchmarks/bigO.c 				\
+		benchmarks/disorder_metric.c 	\
+		algoritms/simple.c 				\
+		algoritms/medium.c 				\
+		operators/pa.c 					\
+		operators/pb.c 					\
+		operators/ra.c 					\
+		operators/rb.c 					\
+		operators/rra.c 				\
+		operators/rrb.c 				\
+		operators/rr.c 					\
+		operators/rrr.c 				\
+		operators/sa.c 					\
+		operators/sb.c 					\
+		operators/ss.c 					\
+		utils/list.c 					\
+		utils/stack.c 					\
+		utils/index.c 					\
+		parser/check_flag.c				\
+		parser/init.c					\
+		parser/number_check.c			\
+		parser/print_error.c			\
 		utils/math_operators.c
 	
 
