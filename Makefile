@@ -21,7 +21,6 @@ SRCS        :=	\
 		algoritms/simple.c \
 		algoritms/medium.c \
 		algoritms/complex.c \
-		algoritms/adaptive.c \
 		operators/pa.c \
 		operators/pb.c \
 		operators/ra.c \

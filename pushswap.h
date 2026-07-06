@@ -12,8 +12,8 @@ typedef struct s_node
     struct s_node   *next;
 }   t_node;
 
-size_t bubble_sorting(t_node **stack);
-int	chunk_sorting(t_node **stack_a, t_node **stack_b);
+size_t  bubble_sorting(t_node **stack);
+int     chunk_sorting(t_node **stack_a, t_node **stack_b);
 double  disorder_metric(t_node *stack);
 
 
@@ -61,19 +61,19 @@ void    rrr(t_node **stack_a, t_node **stack_b);
 
     // error\n 
 
-void	print_error_exit(void);
+void    print_error_exit(void);
    
     // number check
-int is_valid_number(char *str);
-int check_int_limit(char *str);
+int     is_valid_number(char *str);
+int     check_int_limit(char *str);
 
     // check flags 
 
-int check_algorithm_flag(char *str);
-char get_algorithm(char *str);  
+int     check_algorithm_flag(char *str);
+char    get_algorithm(char *str);  
 
     //init
-int	is_valid_argument(t_node *stack, char *arg, long val);
+int     is_valid_argument(t_node *stack, char *arg, long val);
 t_node	*build_stack(char **argv, int start);
 int     parse_flags(char **argv, char *flag, int *bench);
 void    run_sort(t_node **stack_a, t_node **stack_b, char flag);
