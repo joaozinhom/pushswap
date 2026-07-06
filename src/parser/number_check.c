@@ -12,20 +12,6 @@
 
 #include "pushswap.h"
 
-int check_duplicate(int *stack, int size, int num)
-{
-	int i;
-
-	i = 0;
-	while (i < size)
-	{
-		if (stack[i] == num)
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
 int	is_valid_number(char *str)
 {
 	int	i;
@@ -36,7 +22,7 @@ int	is_valid_number(char *str)
 	if (str[i] == '-' || str[i] == '+')
 		i++;
 	if (str[i] == '\0') // o sinal sozinho é invalido
-		return(print_actual_error(), 0);
+		return(print_error_exit(), 0);
 	while (str[i])
 	{
 		if (str[i] < '0' || str[i] > '9')
@@ -71,5 +57,4 @@ int	check_int_limit(char *str)
 		return (ft_strncmp(str, "2147483648", 10) <= 0); // se strcmp for > 0, o numero e menor que -2147483648
     else 
         return (ft_strncmp(str, "2147483647", 10) <= 0); // se strcmp for > 0, o numero e maior que 2147483647
-	return(print_actual_error());
 }

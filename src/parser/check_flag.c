@@ -12,28 +12,26 @@
 
 #include "pushswap.h"
 
-int check_flag(char *str)
+int check_algorithm_flag(char *str)
 {
-	if(ft_strncmp (str, "--simple", 8) == 0)
-	{ 
-		/* simple call */ 
-	}
-	else if(ft_strncmp (str, "--medium", 8) == 0)
-	{ 
-		/* simple call */ 
-	}
-	else if(ft_strncmp (str, "--complex", 9) == 0)
-	{ 
-		/* simple call */ 
-	}
-	else if(ft_strncmp (str, "--adaptative", 12) == 0)
-	{ 
-		/* simple call */ 
-	}
-	else if(ft_strncmp (str, "--bench", 7) == 0)
-	{ 
-		/* simple call */ 
-	}
-	else 
-		return(print_actual_error());
+	if (ft_strncmp(str, "--simple", 8) == 0)
+		return (1);
+	if (ft_strncmp(str, "--medium", 8) == 0)
+		return (1);
+	if (ft_strncmp(str, "--complex", 9) == 0)
+		return (1);
+	if (ft_strncmp(str, "--adaptive", 10) == 0)
+		return (1);
+	return (0);
+}
+
+char get_algorithm(char *str)
+{
+	if (ft_strncmp(str, "--simple", 8) == 0)
+		return ('s');
+	if (ft_strncmp(str, "--medium", 8) == 0)
+		return ('m');
+	if (ft_strncmp(str, "--complex", 9) == 0)
+		return ('c');
+	return ('a');
 }

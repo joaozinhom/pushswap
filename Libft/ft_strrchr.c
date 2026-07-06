@@ -19,11 +19,11 @@ char	*ft_strrchr(const char *s, int c)
 	i = ft_strlen(s);
 	if ((unsigned char)c == '\0')
 		return ((char *)&s[i]);
-	while (i >= 0)
+	while (i > 0)
 	{
+		i--;
 		if ((unsigned char)s[i] == (unsigned char)c)
 			return ((char *)&s[i]);
-		i--;
 	}
 	return (NULL);
 }

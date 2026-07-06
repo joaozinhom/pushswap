@@ -17,9 +17,3 @@ void	print_error_exit(void)
 	write(2, "Error\n", 6);
 	exit (1);
 }
-
-void print_actual_error(void) // detele it
-{
-	ft_printf("Error na %s", __func__);
-	exit(1);
-}
