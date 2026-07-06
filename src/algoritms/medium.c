@@ -1,5 +1,5 @@
-#include "pushswap.h"
 
+#include "pushswap.h"
 
 static int	value_in_range(int value, int start, int end)
 {
