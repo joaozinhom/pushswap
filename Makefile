@@ -34,7 +34,12 @@ SRCS        :=	\
 		utils/list.c \
 		utils/stack.c \
 		utils/index.c \
+		parser/check_flag.c\
+		parser/init.c\
+		parser/number_check.c\
+		parser/print_error.c\
 		utils/math_operators.c
+	
 
 OBJS        := $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
