@@ -35,20 +35,14 @@ SRCS        :=	\
 		operators/sa.c \
 		operators/sb.c \
 		operators/ss.c \
-		parser/check_flag.c \
-		parser/init.c \
-		parser/number_check.c \
-		sort/run_sort.c\
-		parser/print_error.c \
-		stack/index.c \
-		stack/list.c \
-		stack/stack.c \
-		stack/stack_more.c \
-		utils/math.c \
-		utils/medium_utils.c
-
-
-	
+		utils/list.c \
+		utils/stack.c \
+		utils/index.c \
+		utils/math_operators.c\
+		parser/check_flag.c\
+		parser/init.c\
+		parser/number_check.c\
+		parser/print_error.c
 
 OBJS        := $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
