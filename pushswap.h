@@ -9,6 +9,7 @@
 typedef struct s_node
 {
     int             value;
+    int             index;
     struct s_node   *next;
 }   t_node;
 
@@ -24,6 +25,12 @@ void	rotate_b_to(t_node **stack_b, int pos, int size_b);
 void	insert_sorted_b(t_node **stack_a, t_node **stack_b);
 void	push_chunk(t_node **stack_a, t_node **stack_b, int start, int end);
 int		chunk_sorting(t_node **stack_a, t_node **stack_b);
+
+// index.c
+void	reindex(t_node *stack);
+t_node	*node_at(t_node *stack, int index);
+int		index_of(t_node *stack, int value);
+int		signed_distance(int pos, int size);
 
 // list.c
 t_node  *new_node(int value);

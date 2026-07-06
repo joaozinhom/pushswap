@@ -14,13 +14,12 @@ LIBFT		:= $(LIBFT_DIR)/libft.a
 PRINTF_DIR	:= ft_printf
 PRINTF_LIB	:= $(PRINTF_DIR)/libftprintf.a
 
+# not compiled yet: puswap.c, algoritms/complex.c (WIP), algoritms/adaptative.c (empty)
 SRCS        :=	\
-		main.c\
-		pushswap.c \
+		main.c \
 		benchmarks/disorder_metric.c \
 		algoritms/simple.c \
 		algoritms/medium.c \
-		algoritms/complex.c \
 		operators/pa.c \
 		operators/pb.c \
 		operators/ra.c \
@@ -33,14 +32,9 @@ SRCS        :=	\
 		operators/sb.c \
 		operators/ss.c \
 		utils/list.c \
-		utils/stack.c\
-		utils/math_operators.c\
-		parser/print_error.c\
-		parser/number_check.c\
-		parser/check_flag.c\
-		parser/init.c\
-
-	
+		utils/stack.c \
+		utils/index.c \
+		utils/math_operators.c
 
 OBJS        := $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
