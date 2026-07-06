@@ -1,7 +1,5 @@
 #include "pushswap.h"
 
-/* Walks the stack and stamps each node with its current position (0 = top).
-** Call it once after a batch of operations, then read node->index freely. */
 void	reindex(t_node *stack)
 {
 	int	i;
@@ -40,9 +38,6 @@ int	index_of(t_node *stack, int value)
 	return (-1);
 }
 
-/* Cheapest way to bring position pos to the top of a stack of `size`:
-** returns > 0 -> that many forward rotations (ra/rb),
-** returns < 0 -> that many reverse rotations (rra/rrb). */
 int	signed_distance(int pos, int size)
 {
 	if (pos <= size / 2)
