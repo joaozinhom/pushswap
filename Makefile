@@ -34,20 +34,17 @@ SRCS        :=	\
 		utils/list.c \
 		utils/stack.c \
 		utils/index.c \
-<<<<<<< HEAD
 		utils/math_operators.c\
 		parser/check_flag.c\
 		parser/init.c\
 		parser/number_check.c\
 		parser/print_error.c
-=======
 		parser/check_flag.c\
 		parser/init.c\
 		parser/number_check.c\
 		parser/print_error.c\
 		utils/math_operators.c
 	
->>>>>>> 831f167 (makefile)
 
 OBJS        := $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
