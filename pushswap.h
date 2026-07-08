@@ -6,6 +6,44 @@
 # include "../Libft/libft.h"
 # include "../ft_printf/ft_printf.h"
 
+
+//bench 
+
+typedef struct s_operations // conta a quantidade de operacoes
+{
+	int	sa;
+	int	sb;
+	int	ss;
+	int	pa;
+	int	pb;
+	int	ra;
+	int	rb;
+	int	rr;
+	int	rra;
+	int	rrb;
+	int	rrr;
+
+} t_operations;
+
+typedef struct s_bench
+{
+	int		total;
+	int		complexity;
+	double	disorder;
+	char	*strategy;
+
+} t_bench;
+
+	// count-ops.c
+
+	t_operations *get_operations(void);
+	void print_op(char *op);
+	void	print_op_name(char *name);
+
+
+
+// 
+
 typedef struct s_node
 {
     int             value;

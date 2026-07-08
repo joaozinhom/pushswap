@@ -38,7 +38,8 @@ SRCS        :=	\
 		parser/check_flag.c\
 		parser/init.c\
 		parser/number_check.c\
-		parser/print_error.c
+		parser/print_error.c\
+		need-to-organize/count-ops.c
 	
 
 OBJS        := $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
