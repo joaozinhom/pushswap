@@ -10,7 +10,7 @@ int	is_valid_argument(t_node *stack, char *arg, long val)
 	while (tmp)
 	{
 		if (tmp->value == (int)val)
-			return (0); // se achar retorna 0
+			return (0); // se achar
 		tmp = tmp->next;
 	}
 	return (1);

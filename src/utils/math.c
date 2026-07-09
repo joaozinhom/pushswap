@@ -1,3 +1,7 @@
+// header 
+
+#include "pushswap.h"
+
 int	int_sqrt_ceil(int n)
 {
 	int	i;

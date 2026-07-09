@@ -1,3 +1,5 @@
+// header 
+
 #include "pushswap.h"
 
 void	reindex(t_node *stack)

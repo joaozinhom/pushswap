@@ -1,14 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   number_check.c                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mpinto-l <mpinto-l@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/03 15:28:35 by mpinto-l          #+#    #+#             */
-/*   Updated: 2026/07/03 16:37:07 by mpinto-l         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// header 
 
 #include "pushswap.h"
 
@@ -55,6 +45,6 @@ int	check_int_limit(char *str)
 		return (1);
 	else if (is_negative) // caso tenha 10 digitos
 		return (ft_strncmp(str, "2147483648", 10) <= 0); // se strcmp for > 0, o numero e menor que -2147483648
-    else 
-        return (ft_strncmp(str, "2147483647", 10) <= 0); // se strcmp for > 0, o numero e maior que 2147483647
+	else 
+		return (ft_strncmp(str, "2147483647", 10) <= 0); // se strcmp for > 0, o numero e maior que 2147483647
 }

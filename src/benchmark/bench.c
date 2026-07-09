@@ -1,3 +1,5 @@
+// header 
+
 #include "pushswap.h"
 
 static void	print_disorder(t_bench *bench)
@@ -32,9 +34,9 @@ static void	print_strategy(t_bench *bench)
 }
 
 
-static void print_total_ops(void) 
+static void	print_total_ops(void) 
 {
-	t_operations *ops;
+	t_operations	*ops;
 
 	ops = get_operations();
 	ft_printf("[bench] total_ops: %i\n", ops->total);
@@ -44,12 +46,12 @@ static void print_total_ops(void)
 	ops->ra, ops->rb, ops->rr, ops->rra, ops->rrb, ops->rrr);
 }
 
-void print_bench(void)
+void	print_bench(void)
 {
-	t_bench *bench;
+	t_bench	*bench;
 
 	bench = get_bench();
-	if(!bench->state)
+	if(!bench->enabled)
 		return ;
 	print_disorder(bench);
 	print_strategy(bench);

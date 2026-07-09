@@ -1,19 +1,12 @@
+// header 
 
 #include "pushswap.h"
 
-int stack_size(t_node *stack)
+int	peek(t_node *stack)
 {
-    int     i;
-    t_node  *node;
-
-    i = 0;
-    node = stack;
-    while (node != NULL)
-    {
-        node = node->next;
-        i++;
-    }
-    return (i);
+	if (!stack)
+		return (0);
+	return (stack->value);
 }
 
 t_node  *pop_top(t_node **stack)
@@ -26,44 +19,6 @@ t_node  *pop_top(t_node **stack)
     *stack = (*stack)->next;
     node->next = NULL;
     return (node);
-}
-
-
-int stack_max(t_node *stack)
-{
-    int max;
-
-    if (!stack)
-        return (0);
-    max = stack->value;
-    while (stack != NULL)
-    {
-        if (stack->value > max)
-            max = stack->value;
-        stack = stack->next;
-    }
-    return (max);
-}
-
-int peek(t_node *stack)
-{
-    if (!stack)
-        return (0);
-    return (stack->value);
-}
-
-void    swap_first_two(t_node **stack)
-{
-    t_node  *first;
-    t_node  *second;
-
-    if (!stack || !*stack || !(*stack)->next)
-        return ;
-    first = *stack;
-    second = first->next;
-    first->next = second->next;
-    second->next = first;
-    *stack = second;
 }
 
 void shiftup(t_node **stack)
@@ -104,15 +59,4 @@ void shiftdown(t_node **stack)
         carry = temp;
         actual = actual->next;
     }
-}
-
-int	is_sorted(t_node *stack)
-{
-	while (stack && stack->next)
-	{
-		if (stack->value > stack->next->value)
-			return (0);
-		stack = stack->next;
-	}
-	return (1);
 }

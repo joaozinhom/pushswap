@@ -1,3 +1,5 @@
+// header
+
 #include "pushswap.h"
 
 static void	set_strategy(char *name, int complexity)
