@@ -38,18 +38,18 @@ t_node	*build_stack(char **argv, int start)
 	return (stack);
 }
 
-int	parse_flags(char **argv, char *flag, int *bench)
+int	parse_flags(char **argv, char *flag)
 {
 	int	i;
 
 	i = 1;
-	*bench = 0;
+	get_bench()->state = FALSE;
 	*flag = 'a';// se nao mandar nenhuma flag passa direto para o adaptive
 	if (!argv[i])
 		return (0);
-	if (ft_strncmp(argv[i], "--bench", 7) == 0) // --bench sempre vem primeiro
+	if (ft_strncmp(argv[i], "--bench", 8) == 0) // --bench sempre vem primeiro
 	{
-		*bench = 1;
+		get_bench()->state = TRUE;
 		i++;
 	}
 	if (argv[i] && check_algorithm_flag(argv[i])) // checa se tem flag
@@ -58,28 +58,4 @@ int	parse_flags(char **argv, char *flag, int *bench)
 		i++;
 	}
 	return (i); // índice do primeiro número
-}
-
-void	run_sort(t_node **stack_a, t_node **stack_b, char flag)
-{
-	double	d;
-
-	if (is_sorted(*stack_a)) // se ja estiver em ordem nao faz nada
-		return ;
-	if (flag == 's')
-		bubble_sorting(stack_a);
-	else if (flag == 'm')
-		chunk_sorting(stack_a, stack_b);
-	else if (flag == 'c')
-		ft_printf("complex\n"); // drama :(
-	else // adaptive
-	{
-		d = disorder_metric(*stack_a); // 0.0 = ordenado, 1.0 = fudido
-		if (d < 0.2)
-			bubble_sorting(stack_a);
-		else if (d < 0.5)
-			chunk_sorting(stack_a, stack_b);
-		else
-			ft_printf("complex\n"); // drama
-	}
 }

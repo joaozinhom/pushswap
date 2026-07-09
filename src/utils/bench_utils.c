@@ -24,3 +24,10 @@
 // 	char	*strategy;
 
 // } t_bench;
+
+t_bench	*get_bench(void)
+{
+	static t_bench	bench = {FALSE, 0, 0.0, "Adaptive"};
+	return (&bench);
+}
+

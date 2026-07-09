@@ -18,8 +18,9 @@ PRINTF_LIB	:= $(PRINTF_DIR)/libftprintf.a
 SRCS        :=	\
 		main.c \
 		benchmarks/disorder_metric.c \
-		algoritms/simple.c \
-		algoritms/medium.c \
+		algorithms/simple.c \
+		algorithms/medium.c \
+		algorithms/complex.c\
 		operators/pa.c \
 		operators/pb.c \
 		operators/ra.c \
@@ -35,11 +36,16 @@ SRCS        :=	\
 		utils/stack.c \
 		utils/index.c \
 		utils/math_operators.c\
-		parser/check_flag.c\
+		utils/bench_utils.c\
+		parser/check_flags.c\
 		parser/init.c\
 		parser/number_check.c\
 		parser/print_error.c\
-		need-to-organize/count-ops.c
+		parser/run_sort.c\
+		parser/count-ops.c\
+		parser/print_bench.c
+	
+
 	
 
 OBJS        := $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))

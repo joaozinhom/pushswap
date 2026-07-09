@@ -25,15 +25,20 @@
 
 // } t_bench;
 
-t_operations *get_operations(void)
+t_operations *get_operations(void) // tbm me protege de fazer caquinha com o a struct de operacoes 
 {
-    static t_operations ops = {0};
+    static t_operations ops = {0}; // ja faz com que todos comecem com 0
     return (&ops);
 }
 
-void print_op(char *op)
+static void update_total(void)
 {
-    ft_putendl_fd(op, 1);
+    t_operations *ops = get_operations();  // ponteiro direto da struct original
+
+    ops->total = ops->sa + ops->sb + ops->ss;
+    ops->total += ops->pa + ops->pb + ops->ra;
+    ops->total += ops->rb + ops->rr + ops->rra;
+    ops->total += ops->rrb + ops->rrr;
 }
 
 static void update_op_count(char *name)
@@ -62,9 +67,10 @@ static void update_op_count(char *name)
 		get_operations()->rr++;
 }
 
-void	print_op_name(char *name)
+void	print_op(char *name)
 {
 	//if (!*get_bench_flag())
 	ft_printf("%s\n", name);
     update_op_count(name);
+	update_total();
 }

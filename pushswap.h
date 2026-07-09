@@ -6,10 +6,7 @@
 # include "../Libft/libft.h"
 # include "../ft_printf/ft_printf.h"
 
-
-//bench 
-
-typedef struct s_operations // conta a quantidade de operacoes
+typedef struct s_operations // guarda quantidade de operacoes
 {
 	int	sa;
 	int	sb;
@@ -22,27 +19,23 @@ typedef struct s_operations // conta a quantidade de operacoes
 	int	rra;
 	int	rrb;
 	int	rrr;
+	int total;
 
 } t_operations;
+typedef enum e_bool // firula que eu vi hoje
+{
+    FALSE,	// 0
+    TRUE	// 1
+} t_bool;
 
 typedef struct s_bench
 {
-	int		total;
-	int		complexity;
-	double	disorder;
-	char	*strategy;
+	t_bool			state;
+	int				complexity;
+	double			disorder;
+	char			*strategy;
 
 } t_bench;
-
-	// count-ops.c
-
-	t_operations *get_operations(void);
-	void print_op(char *op);
-	void	print_op_name(char *name);
-
-
-
-// 
 
 typedef struct s_node
 {
@@ -64,6 +57,13 @@ void	rotate_b_to(t_node **stack_b, int pos, int size_b);
 void	insert_sorted_b(t_node **stack_a, t_node **stack_b);
 void	push_chunk(t_node **stack_a, t_node **stack_b, int start, int end);
 int		chunk_sorting(t_node **stack_a, t_node **stack_b);
+
+// complex.c 
+
+void	get_to_index(t_node **stack, int index);
+int		find_pivot(t_node *a, int size);
+int		partition(t_node **a, t_node **b, int size);
+void	quick_sort(t_node **a, t_node **b, int size);
 
 // index.c
 void	reindex(t_node *stack);
@@ -119,9 +119,18 @@ char    get_algorithm(char *str);
     //init
 int     is_valid_argument(t_node *stack, char *arg, long val);
 t_node	*build_stack(char **argv, int start);
-int     parse_flags(char **argv, char *flag, int *bench);
+int     parse_flags(char **argv, char *flag);
 void    run_sort(t_node **stack_a, t_node **stack_b, char flag);
 
+// count-ops.c
 
+t_operations	*get_operations(void);
+void			print_op(char *name);
+
+// bench-utils
+
+t_bench			*get_bench(void);
+
+void print_bench(void);
 
 #endif
