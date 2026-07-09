@@ -22,6 +22,7 @@ typedef struct s_operations // guarda quantidade de operacoes
 	int total;
 
 } t_operations;
+
 typedef enum e_bool // firula que eu vi hoje
 {
     FALSE,	// 0
