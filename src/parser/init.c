@@ -43,13 +43,13 @@ int	parse_flags(char **argv, char *flag)
 	int	i;
 
 	i = 1;
-	get_bench()->state = FALSE;
+	get_bench()->enabled = FALSE;
 	*flag = 'a';// se nao mandar nenhuma flag passa direto para o adaptive
 	if (!argv[i])
 		return (0);
 	if (ft_strncmp(argv[i], "--bench", 8) == 0) // --bench sempre vem primeiro
 	{
-		get_bench()->state = TRUE;
+		get_bench()->enabled = TRUE;
 		i++;
 	}
 	if (argv[i] && check_algorithm_flag(argv[i])) // checa se tem flag
