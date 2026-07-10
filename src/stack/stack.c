@@ -1,4 +1,14 @@
-// header 
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpinto-l <mpinto-l@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/10 10:23:18 by mpinto-l          #+#    #+#             */
+/*   Updated: 2026/07/10 10:33:18 by mpinto-l         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "pushswap.h"
 
@@ -35,16 +45,16 @@ int	stack_max(t_node *stack)
 
 void	swap_first_two(t_node **stack)
 {
-    t_node  *first;
-    t_node  *second;
+	t_node	*first;
+	t_node	*second;
 
-    if (!stack || !*stack || !(*stack)->next)
-        return ;
-    first = *stack;
-    second = first->next;
-    first->next = second->next;
-    second->next = first;
-    *stack = second;
+	if (!stack || !*stack || !(*stack)->next)
+		return ;
+	first = *stack;
+	second = first->next;
+	first->next = second->next;
+	second->next = first;
+	*stack = second;
 }
 
 int	is_sorted(t_node *stack)

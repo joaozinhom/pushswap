@@ -1,4 +1,14 @@
-// header 
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   number_check.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpinto-l <mpinto-l@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/10 10:18:59 by mpinto-l          #+#    #+#             */
+/*   Updated: 2026/07/10 10:21:18 by mpinto-l         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "pushswap.h"
 
@@ -11,9 +21,12 @@ int	is_valid_number(char *str)
 	i = 0;
 	if (str[i] == '-' || str[i] == '+')
 		i++;
-	if (str[i] == '\0') // o sinal sozinho é invalido
-		return(print_error_exit(), 0);
-	while (str[i])
+	if (str[i] == '\0')
+	{
+		print_error_exit();// o sinal sozinho é invalido
+		return (0);
+	}
+		while (str[i])
 	{
 		if (str[i] < '0' || str[i] > '9')
 			return (0);

@@ -1,11 +1,22 @@
-// header 
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   operations.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpinto-l <mpinto-l@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/10 09:33:20 by mpinto-l          #+#    #+#             */
+/*   Updated: 2026/07/10 10:06:18 by mpinto-l         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "pushswap.h"
 
 static void	update_total(void)
 {
-	t_operations *ops = get_operations();  // ponteiro direto da struct original
+	t_operations	*ops;
 
+	ops = get_operations();
 	ops->total = ops->sa + ops->sb + ops->ss;
 	ops->total += ops->pa + ops->pb + ops->ra;
 	ops->total += ops->rb + ops->rr + ops->rra;
@@ -14,7 +25,7 @@ static void	update_total(void)
 
 static void	update_op_count(char *name)
 {
-    if (!ft_strncmp(name, "sa", 3))
+	if (!ft_strncmp(name, "sa", 3))
 		get_operations()->sa++;
 	else if (!ft_strncmp(name, "sb", 3))
 		get_operations()->sb++;

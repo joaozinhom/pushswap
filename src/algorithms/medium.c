@@ -1,4 +1,14 @@
-// header 
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   medium.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpinto-l <mpinto-l@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/10 09:29:31 by mpinto-l          #+#    #+#             */
+/*   Updated: 2026/07/10 09:32:30 by mpinto-l         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "pushswap.h"
 
@@ -16,7 +26,7 @@ void	init_chunks(t_chunk *chunk, int stack_size)
 	chunk->rest = stack_size % chunk->count;
 	chunk->start = 0;
 }
-// daria para passar esse peek direto para value_in_range e remover essa variavel top
+
 void	push_chunk(t_node **stack_a, t_node **stack_b, t_chunk *chunk)
 {
 	int	i;
