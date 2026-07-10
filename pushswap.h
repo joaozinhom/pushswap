@@ -64,6 +64,9 @@ typedef struct s_operations
 // algorithms
 
 // simple.c - need header
+int				stack_min(t_node *stack);
+void			sort_three(t_node **stack);
+void			small_sort(t_node **stack_a, t_node **stack_b);
 size_t			bubble_sorting(t_node **stack);
 
 // medium.c - need header
