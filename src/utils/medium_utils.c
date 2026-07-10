@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   medium_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpinto-l <mpinto-l@student.42.fr>          +#+  +:+       +#+        */
+/*   By: joamoren <joamoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 10:33:44 by mpinto-l          #+#    #+#             */
-/*   Updated: 2026/07/10 10:33:46 by mpinto-l         ###   ########.fr       */
+/*   Updated: 2026/07/10 14:05:27 by joamoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	rotate_b_to(t_node **stack_b, int pos, int size_b)
 	int	steps_forward;
 	int	steps_backward;
 
+	if (pos == size_b)
+		return ;
 	i = 0;
 	steps_forward = pos;
 	steps_backward = size_b - pos;

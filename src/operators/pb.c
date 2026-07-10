@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpinto-l <mpinto-l@student.42.fr>          +#+  +:+       +#+        */
+/*   By: joamoren <joamoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 10:06:49 by mpinto-l          #+#    #+#             */
-/*   Updated: 2026/07/10 10:06:50 by mpinto-l         ###   ########.fr       */
+/*   Updated: 2026/07/10 14:05:29 by joamoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,5 @@ void	pb(t_node **stack_b, t_node **stack_a)
 	if (!stack_a || !*stack_a)
 		return ;
 	push_top(stack_b, pop_top(stack_a));
-	print_op("pa");
+	print_op("pb");
 }

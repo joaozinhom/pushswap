@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   medium.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpinto-l <mpinto-l@student.42.fr>          +#+  +:+       +#+        */
+/*   By: joamoren <joamoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 09:29:31 by mpinto-l          #+#    #+#             */
-/*   Updated: 2026/07/10 09:32:30 by mpinto-l         ###   ########.fr       */
+/*   Updated: 2026/07/10 14:05:28 by joamoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,7 @@ int	chunk_sorting(t_node **stack_a, t_node **stack_b)
 		chunk.start += chunk.size;
 		i++;
 	}
+	while (*stack_b)
+		pa(stack_a, stack_b);
 	return (0);
 }
