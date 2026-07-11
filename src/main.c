@@ -25,6 +25,7 @@ int	main(int argc, char **argv)
 	if (!argv[start])
 		return (0);
 	stack_a = build_stack(argv, start);
+	normalize_stack(stack_a);
 	stack_b = NULL;
 	run_sort(&stack_a, &stack_b, flag);
 	print_bench();

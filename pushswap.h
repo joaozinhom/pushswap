@@ -6,8 +6,8 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include "../Libft/libft.h"
-# include "../ft_printf/ft_printf.h"
+# include "libft.h"
+# include "ft_printf.h"
 
 // structs
 typedef enum e_bool // firula provavelmente vou trocar o eles por 0 e 1
@@ -129,6 +129,7 @@ int				int_sqrt_ceil(int n);
 
 // index.c - need header
 void			reindex(t_node *stack);
+void			normalize_stack(t_node *stack);
 t_node			*node_at(t_node *stack, int index);
 int				index_of(t_node *stack, int value);
 int				signed_distance(int pos, int size);

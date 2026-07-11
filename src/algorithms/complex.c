@@ -49,7 +49,7 @@ int	find_pivot(t_node *stack, int size)
 			max = stack->value;
 		stack = stack->next;
 	}
-	return ((min + max) / 2);
+	return ((int)(((long)min + (long)max) / 2));
 }
 
 int	partition(t_node **stack_a, t_node **stack_b, int size)
