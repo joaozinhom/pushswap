@@ -51,7 +51,7 @@ static void	update_op_count(char *name)
 
 void	print_op(char *name)
 {
-	ft_printf("%s\n", name);
+	ft_printf(1, "%s\n", name);
 	update_op_count(name);
 	update_total();
 }
