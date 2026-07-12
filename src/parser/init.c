@@ -18,11 +18,11 @@ int	is_valid_argument(t_node *stack, char *arg, long val)
 
 	if (!is_valid_number(arg) || !check_int_limit(arg))
 		return (0);
-	tmp = stack; // percorre a stack procurando duplicadas
+	tmp = stack;
 	while (tmp)
 	{
 		if (tmp->value == (int)val)
-			return (0); // se achar
+			return (0);
 		tmp = tmp->next;
 	}
 	return (1);
@@ -38,7 +38,7 @@ t_node	*build_stack(char **argv, int start)
 	i = start;
 	while (argv[i])
 	{
-		val = ft_atoi(argv[i]); // converte a string para numero
+		val = ft_atoi(argv[i]);
 		if (!is_valid_argument(stack, argv[i], val))
 		{
 			free_stack(&stack);
@@ -55,19 +55,19 @@ int	parse_flags(char **argv, char *flag)
 	int	i;
 
 	i = 1;
-	get_bench()->enabled = FALSE;
-	*flag = 'a';// se nao mandar nenhuma flag passa direto para o adaptive
+	get_bench()->enabled = 0;
+	*flag = 'a';
 	if (!argv[i])
 		return (0);
-	if (ft_strncmp(argv[i], "--bench", 8) == 0) // --bench sempre vem primeiro
+	if (ft_strncmp(argv[i], "--bench", 8) == 0)
 	{
-		get_bench()->enabled = TRUE;
+		get_bench()->enabled = 1;
 		i++;
 	}
-	if (argv[i] && check_algorithm_flag(argv[i])) // checa se tem flag
+	if (argv[i] && check_algorithm_flag(argv[i]))
 	{
 		*flag = get_algorithm(argv[i]);
 		i++;
 	}
-	return (i); // índice do primeiro número
+	return (i);
 }

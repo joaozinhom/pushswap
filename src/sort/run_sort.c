@@ -50,18 +50,10 @@ static void	run_adaptive(t_node **stack_a, t_node **stack_b, double disorder)
 		set_strategy("Adaptive", 0);
 		small_sort(stack_a, stack_b);
 	}
-	else if (size <= 200)
+	else if (size <= 200 && disorder < 0.5)
 	{
-		if (disorder < 0.5)
-		{
-			set_strategy("Adaptive", 1);
-			chunk_sorting(stack_a, stack_b);
-		}
-		else
-		{
-			set_strategy("Adaptive", 2);
-			quick_sort(stack_a, stack_b, size);
-		}
+		set_strategy("Adaptive", 1);
+		chunk_sorting(stack_a, stack_b);
 	}
 	else
 	{

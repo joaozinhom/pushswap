@@ -19,7 +19,7 @@ t_bench	*get_bench(void)
 
 	if (!is_init)
 	{
-		bench.enabled = FALSE;
+		bench.enabled = 0;
 		bench.complexity = 0;
 		bench.disorder = 0.0;
 		bench.strategy = "Adaptive";
@@ -27,7 +27,6 @@ t_bench	*get_bench(void)
 	}
 	return (&bench);
 }
-
 
 t_operations	*get_operations(void)
 {

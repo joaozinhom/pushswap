@@ -16,17 +16,17 @@ int	is_valid_number(char *str)
 {
 	int	i;
 
-	if (str == NULL || str[0] == '\0') // ponteiro nulo
+	if (str == NULL || str[0] == '\0')
 		return (0);
 	i = 0;
 	if (str[i] == '-' || str[i] == '+')
 		i++;
 	if (str[i] == '\0')
 	{
-		print_error_exit();// o sinal sozinho é invalido
+		print_error_exit();
 		return (0);
 	}
-		while (str[i])
+	while (str[i])
 	{
 		if (str[i] < '0' || str[i] > '9')
 			return (0);
@@ -56,8 +56,8 @@ int	check_int_limit(char *str)
 		return (0);
 	else if (len < 10)
 		return (1);
-	else if (is_negative) // caso tenha 10 digitos
-		return (ft_strncmp(str, "2147483648", 10) <= 0); // se strcmp for > 0, o numero e menor que -2147483648
-	else 
-		return (ft_strncmp(str, "2147483647", 10) <= 0); // se strcmp for > 0, o numero e maior que 2147483647
+	else if (is_negative)
+		return (ft_strncmp(str, "2147483648", 10) <= 0);
+	else
+		return (ft_strncmp(str, "2147483647", 10) <= 0);
 }
