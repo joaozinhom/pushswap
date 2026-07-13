@@ -6,46 +6,31 @@
 /*   By: joamoren <joamoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 09:29:31 by mpinto-l          #+#    #+#             */
-/*   Updated: 2026/07/10 14:05:28 by joamoren         ###   ########.fr       */
+/*   Updated: 2026/07/10 16:11:23 by joamoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-static int	value_in_range(int value, int start, int end)
+static void	bring_max_and_pa(t_node **stack_a, t_node **stack_b)
 {
-	if (value >= start && value < end)
-		return (1);
-	return (0);
-}
+	int	size;
+	int	pos;
 
-void	init_chunks(t_chunk *chunk, int stack_size)
-{
-	chunk->count = int_sqrt_ceil(stack_size);
-	chunk->base = stack_size / chunk->count;
-	chunk->rest = stack_size % chunk->count;
-	chunk->start = 0;
-}
-
-void	push_chunk(t_node **stack_a, t_node **stack_b, t_chunk *chunk)
-{
-	int	i;
-	int	top;
-	int	end;
-	int	remaining;
-
-	i = 0;
-	end = chunk->start + chunk->size;
-	remaining = stack_size(*stack_a);
-	while (i < remaining)
+	size = stack_size(*stack_b);
+	pos = index_of(*stack_b, stack_max(*stack_b));
+	if (pos <= size / 2)
 	{
-		top = peek(*stack_a);
-		if (value_in_range(top, chunk->start, end))
-			insert_sorted_b(stack_a, stack_b);
-		else
-			ra(stack_a);
-		i++;
+		while (pos-- > 0)
+			rb(stack_b);
 	}
+	else
+	{
+		pos = size - pos;
+		while (pos-- > 0)
+			rrb(stack_b);
+	}
+	pa(stack_a, stack_b);
 }
 
 int	chunk_sorting(t_node **stack_a, t_node **stack_b)
@@ -67,6 +52,6 @@ int	chunk_sorting(t_node **stack_a, t_node **stack_b)
 		i++;
 	}
 	while (*stack_b)
-		pa(stack_a, stack_b);
+		bring_max_and_pa(stack_a, stack_b);
 	return (0);
 }

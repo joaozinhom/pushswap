@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   run_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpinto-l <mpinto-l@student.42.fr>          +#+  +:+       +#+        */
+/*   By: joamoren <joamoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 10:22:03 by mpinto-l          #+#    #+#             */
-/*   Updated: 2026/07/10 10:22:19 by mpinto-l         ###   ########.fr       */
+/*   Updated: 2026/07/10 15:42:38 by joamoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,15 @@ static int	run_flag_strategy(t_node **stack_a, t_node **stack_b, char flag)
 
 static void	run_adaptive(t_node **stack_a, t_node **stack_b, double disorder)
 {
-	set_strategy("Adaptive", 0);
-	if (disorder < 0.2)
-		bubble_sorting(stack_a);
-	else if (disorder < 0.5)
+	int	size;
+
+	size = stack_size(*stack_a);
+	if (size <= 5)
+	{
+		set_strategy("Adaptive", 0);
+		small_sort(stack_a, stack_b);
+	}
+	else if (size <= 200 && disorder < 0.5)
 	{
 		set_strategy("Adaptive", 1);
 		chunk_sorting(stack_a, stack_b);
@@ -53,7 +58,7 @@ static void	run_adaptive(t_node **stack_a, t_node **stack_b, double disorder)
 	else
 	{
 		set_strategy("Adaptive", 2);
-		quick_sort(stack_a, stack_b, stack_size(*stack_a));
+		quick_sort(stack_a, stack_b, size);
 	}
 }
 

@@ -56,3 +56,35 @@ int	signed_distance(int pos, int size)
 		return (pos);
 	return (pos - size);
 }
+
+/* Replace each value by its rank (0..n-1). Sorting is order-preserving, so the
+   emitted operations are identical, but downstream code can now rely on values
+   being a dense 0..n-1 permutation: chunk ranges match and pivots cannot
+   overflow. Ranks are staged in index first so in-place rewrite is safe. */
+void	normalize_stack(t_node *stack)
+{
+	t_node	*node;
+	t_node	*other;
+	int		rank;
+
+	node = stack;
+	while (node != NULL)
+	{
+		rank = 0;
+		other = stack;
+		while (other != NULL)
+		{
+			if (other->value < node->value)
+				rank++;
+			other = other->next;
+		}
+		node->index = rank;
+		node = node->next;
+	}
+	node = stack;
+	while (node != NULL)
+	{
+		node->value = node->index;
+		node = node->next;
+	}
+}

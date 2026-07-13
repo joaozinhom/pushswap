@@ -12,59 +12,68 @@
 
 #include "pushswap.h"
 
-int	find_insert_pos(t_node *stack_b, int value)
+void	init_chunks(t_chunk *chunk, int stack_size)
 {
-	int		pos;
-	t_node	*node;
-
-	pos = 0;
-	node = stack_b;
-	while (node != NULL && node->value < value)
-	{
-		node = node->next;
-		pos++;
-	}
-	return (pos);
+	chunk->count = int_sqrt_ceil(stack_size);
+	chunk->base = stack_size / chunk->count;
+	chunk->rest = stack_size % chunk->count;
+	chunk->start = 0;
 }
 
-void	rotate_b_to(t_node **stack_b, int pos, int size_b)
+static int	value_in_range(int value, int start, int end)
 {
-	int	i;
-	int	steps_forward;
-	int	steps_backward;
+	if (value >= start && value < end)
+		return (1);
+	return (0);
+}
 
-	if (pos == size_b)
-		return ;
-	i = 0;
-	steps_forward = pos;
-	steps_backward = size_b - pos;
-	if (steps_forward <= steps_backward)
+static void	rotate_a_to_pos(t_node **stack_a, int pos, int size)
+{
+	if (pos <= size / 2)
 	{
-		while (i < steps_forward)
-		{
-			rb(stack_b);
-			i++;
-		}
+		while (pos-- > 0)
+			ra(stack_a);
 	}
 	else
 	{
-		while (i < steps_backward)
-		{
-			rrb(stack_b);
-			i++;
-		}
+		pos = size - pos;
+		while (pos-- > 0)
+			rra(stack_a);
 	}
 }
 
-void	insert_sorted_b(t_node **stack_a, t_node **stack_b)
+static int	find_chunk_pos(t_node *stack, int start, int end)
 {
-	int	value;
 	int	pos;
-	int	size_b;
 
-	value = peek(*stack_a);
-	size_b = stack_size(*stack_b);
-	pos = find_insert_pos(*stack_b, value);
-	rotate_b_to(stack_b, pos, size_b);
-	pb(stack_b, stack_a);
+	pos = 0;
+	while (stack != NULL)
+	{
+		if (value_in_range(stack->value, start, end))
+			return (pos);
+		stack = stack->next;
+		pos++;
+	}
+	return (-1);
+}
+
+void	push_chunk(t_node **stack_a, t_node **stack_b, t_chunk *chunk)
+{
+	int	i;
+	int	end;
+	int	pos;
+	int	size;
+
+	i = 0;
+	end = chunk->start + chunk->size;
+	while (i < chunk->size)
+	{
+		size = stack_size(*stack_a);
+		pos = find_chunk_pos(*stack_a, chunk->start, end);
+		if (pos == -1)
+			break ;
+		rotate_a_to_pos(stack_a, pos, size);
+		pb(stack_b, stack_a);
+		i++;
+	}
 }

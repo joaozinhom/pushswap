@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	ft_puthex_upper(unsigned int n)
+int	ft_puthex_upper(int fd, unsigned int n)
 {
 	int		count;
 	char	*base;
@@ -21,10 +21,10 @@ int	ft_puthex_upper(unsigned int n)
 	base = "0123456789ABCDEF";
 	if (n >= 16)
 	{
-		count += ft_puthex_upper(n / 16);
-		count += ft_puthex_upper(n % 16);
+		count += ft_puthex_upper(fd, n / 16);
+		count += ft_puthex_upper(fd, n % 16);
 	}
 	else
-		count += ft_putchar(base[n % 16]);
+		count += ft_putchar(fd, base[n % 16]);
 	return (count);
 }

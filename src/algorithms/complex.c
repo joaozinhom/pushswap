@@ -6,7 +6,7 @@
 /*   By: joamoren <joamoren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 09:29:13 by mpinto-l          #+#    #+#             */
-/*   Updated: 2026/07/10 14:05:28 by joamoren         ###   ########.fr       */
+/*   Updated: 2026/07/10 15:25:29 by joamoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	find_pivot(t_node *stack, int size)
 			max = stack->value;
 		stack = stack->next;
 	}
-	return ((min + max) / 2);
+	return ((int)(((long)min + (long)max) / 2));
 }
 
 int	partition(t_node **stack_a, t_node **stack_b, int size)
@@ -88,9 +88,13 @@ void	quick_sort(t_node **stack_a, t_node **stack_b, int size)
 
 	if (size <= 1)
 		return ;
-	pushed = partition(stack_a, stack_b, size);
-	if (pushed == 0 || pushed == size)
+	if (size == 2)
+	{
+		if ((*stack_a)->value > (*stack_a)->next->value)
+			sa(stack_a);
 		return ;
+	}
+	pushed = partition(stack_a, stack_b, size);
 	quick_sort(stack_a, stack_b, size - pushed);
 	i = pushed;
 	while (i-- > 0)

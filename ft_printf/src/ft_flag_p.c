@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	ft_putadress(unsigned long nb)
+int	ft_putaddress(int fd, unsigned long nb)
 {
 	int		count;
 	char	*base;
@@ -20,19 +20,19 @@ int	ft_putadress(unsigned long nb)
 	count = 0;
 	base = "0123456789abcdef";
 	if (nb >= 16)
-		count += ft_putadress(nb / 16);
-	count += ft_putchar(base[nb % 16]);
+		count += ft_putaddress(fd, nb / 16);
+	count += ft_putchar(fd, base[nb % 16]);
 	return (count);
 }
 
-int	ft_putpointer(void *ptr)
+int	ft_putpointer(int fd, void *ptr)
 {
 	int	count;
 
 	count = 0;
 	if (!ptr)
-		return (ft_putstr("(nil)"));
-	count += ft_putstr("0x");
-	count += ft_putadress((unsigned long)ptr);
+		return (ft_putstr(fd, "(nil)"));
+	count += ft_putstr(fd, "0x");
+	count += ft_putaddress(fd, (unsigned long)ptr);
 	return (count);
 }

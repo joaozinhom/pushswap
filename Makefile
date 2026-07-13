@@ -14,14 +14,12 @@ LIBFT		:= $(LIBFT_DIR)/libft.a
 PRINTF_DIR	:= ft_printf
 PRINTF_LIB	:= $(PRINTF_DIR)/libftprintf.a
 
-# not compiled yet: puswap.c, algoritms/complex.c (WIP), algoritms/adaptative.c (empty)
 SRCS        :=	\
 		main.c \
 		algorithms/complex.c \
 		algorithms/medium.c \
 		algorithms/simple.c \
 		benchmark/bench.c \
-		benchmark/bench_utils.c \
 		benchmark/disorder.c \
 		benchmark/operations.c \
 		operators/pa.c \
@@ -45,7 +43,8 @@ SRCS        :=	\
 		stack/stack.c \
 		stack/stack_more.c \
 		utils/math.c \
-		utils/medium_utils.c
+		utils/medium_utils.c\
+		utils/bench_utils.c 
 
 
 	
